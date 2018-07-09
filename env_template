@@ -1,0 +1,20 @@
+NODE_ENV=<development for local>
+NODE_HOST=<host for server>
+NODE_PORT=<port for server>
+
+#DEVELOPMENT ON LOCAL
+DB_DEV_HOST=<change with your local host>
+DB_DEV_PORT=<change with your local port>
+DB_DEV_USER=<change with your local username>
+DB_DEV_PASS=<change with your local password>
+DB_DEV=<change with your local database name>
+DB_DEV_DIALECT=<change with your local database dialect>
+
+#TEST
+#THIS IS FOR TESTING ON LOCAL
+DB_TEST_HOST=<change with your local host>
+DB_TEST_PORT=<change with your local port>
+DB_TEST_USER=<change with your local username>
+DB_TEST_PASS=<change with your local password>
+DB_TEST=<change with your local database name>
+DB_TEST_DIALECT=<change with your local database dialect>
