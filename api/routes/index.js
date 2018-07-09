@@ -1,4 +1,5 @@
 const {createEvent} = require('./handler/event')
+const {createLocation} = require('./handler/location')
 
 const routes = {
   register: (server, options) => {
@@ -14,6 +15,10 @@ const routes = {
       method: 'POST',
       path: '/event/create',
       config: createEvent
+    }, {
+      method: 'POST',
+      path: '/location/create',
+      config: createLocation
     }
     ])
   },
