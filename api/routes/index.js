@@ -1,3 +1,5 @@
+const {createEvent} = require('./handler/event')
+
 const routes = {
   register: (server, options) => {
     server.route([{
@@ -8,10 +10,14 @@ const routes = {
         description: 'Root API',
         notes: 'return server status'
       }
+    }, {
+      method: 'POST',
+      path: '/event/create',
+      config: createEvent
     }
-  ])
+    ])
   },
   name: 'routes-plugin'
 }
 
-module.exports = routes;
+module.exports = routes

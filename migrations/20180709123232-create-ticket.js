@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 const { createAuditTriggerQuery } = require('./../utils/migration')
 
 module.exports = {
@@ -44,6 +44,6 @@ module.exports = {
     }).then(() => queryInterface.sequelize.query(createAuditTriggerQuery(tableName)))
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Tickets');
+    return queryInterface.dropTable('Tickets')
   }
-};
+}
