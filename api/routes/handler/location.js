@@ -8,5 +8,6 @@ module.exports.createLocation = {
       address: Joi.string().required()
     }
   },
-  handler: createLocation
+  handler: createLocation,
+  description: 'Create a location for events'
 }

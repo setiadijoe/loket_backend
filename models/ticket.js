@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     quota: DataTypes.INTEGER,
     startDate: DataTypes.DATE,
     endDate: DataTypes.DATE,
-    eventId: DataTypes.INTEGER
+    eventId: DataTypes.INTEGER,
+    ticketType: DataTypes.STRING
   }, {});
   Ticket.associate = function(models) {
     // associations can be defined here

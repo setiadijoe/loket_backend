@@ -8,5 +8,6 @@ module.exports.createEvent = {
       locationId: Joi.number().required()
     }
   },
-  handler: createEvent
+  handler: createEvent,
+  description: 'End Point for create an event with spesific location'
 }
