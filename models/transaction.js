@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Transaction.associate = function(models) {
     // associations can be defined here
-    Transaction.hasMany(models.TransactionTicket)
-    Transaction.belongsToMany(models.Ticket, {through: 'TransactionTicket'})
+    Transaction.hasMany(models.TransactionTicket, {foreignKey: 'transactionId'})
+    Transaction.belongsToMany(models.Ticket, {through: 'TransactionTicket', foreignKey: 'transactionId'})
   };
   return Transaction;
 };

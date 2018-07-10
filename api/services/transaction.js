@@ -4,12 +4,12 @@ async function purchaseTicket (name, phoneNumber, ticketId, amountTicket) {
   var context = {}
   return Model.Transaction.create({name, phoneNumber})
     .then(transaction => {
-      context['trans'] = transaction
+      context['transaction'] = transaction
       return takeTicket(ticketId, amountTicket)
     })
-    .then(res => {
-      context['result'] = res
-      return insertTransactionTicket(context.trans.id, ticketId, res.price, amountTicket)
+    .then(ticket => {
+      context['ticket'] = ticket
+      return insertTransactionTicket(context.transaction.id, ticketId, ticket.price, amountTicket)
     })
     .then(payment => {
       context['payment'] = payment
@@ -36,7 +36,6 @@ async function takeTicket (ticketId, amountTicket) {
 
 async function insertTransactionTicket (transactionId, ticketId, price, amountTicket) {
   const amountPrize = price * amountTicket
-  console.log(amountPrize)
   return Model.TransactionTicket.create({
     transactionId,
     ticketId,
@@ -45,7 +44,17 @@ async function insertTransactionTicket (transactionId, ticketId, price, amountTi
   })
 }
 
+async function getInfo (transactionId) {
+  return Model.Transaction.findById(transactionId, {
+    include: [
+      {model: Model.TransactionTicket},
+      {model: Model.Ticket}
+    ]
+  })
+}
+
 module.exports = {
   purchaseTicket,
-  insertTransactionTicket
+  insertTransactionTicket,
+  getInfo
 }

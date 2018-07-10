@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const { purchaseTicket } = require('./../../controllers/transaction')
+const { purchaseTicket, getInfo } = require('./../../controllers/transaction')
 
 module.exports.purchaseTicket = {
   validate: {
@@ -14,4 +14,14 @@ module.exports.purchaseTicket = {
   },
   handler: purchaseTicket,
   description: 'Endpoint for purchase ticket'
+}
+
+module.exports.getInfo = {
+  validate: {
+    params: {
+      transactionId: Joi.number().required()
+    }
+  },
+  handler: getInfo,
+  description: 'Endpoint for get info of transaction'
 }
