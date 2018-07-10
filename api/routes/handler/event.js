@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const { createEvent } = require('./../../controllers/event')
+const { createEvent, getInfo } = require('./../../controllers/event')
 
 module.exports.createEvent = {
   validate: {
@@ -10,4 +10,14 @@ module.exports.createEvent = {
   },
   handler: createEvent,
   description: 'End Point for create an event with spesific location'
+}
+
+module.exports.getInfo = {
+  validate: {
+    params: {
+      eventId: Joi.number().required()
+    }
+  },
+  handler: getInfo,
+  description: 'Endpoint for get info about the event'
 }

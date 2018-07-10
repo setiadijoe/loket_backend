@@ -10,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Ticket.associate = function(models) {
     // associations can be defined here
-    Ticket.belongsTo(models.Event)
-    Ticket.hasMany(models.TransactionTicket)
-    Ticket.belongsToMany(models.Transaction, {through: 'TransactionTicket'})
+    Ticket.belongsTo(models.Event, {foreignKey: 'eventId'})
+    Ticket.hasMany(models.TransactionTicket, {foreignKey: 'ticketId'})
+    Ticket.belongsToMany(models.Transaction, {through: 'TransactionTicket', foreignKey: 'ticketId'})
   };
   return Ticket;
 };

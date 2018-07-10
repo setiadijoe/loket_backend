@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   TransactionTicket.associate = function(models) {
     // associations can be defined here
     TransactionTicket.belongsTo(models.Transaction)
-    TransactionTicket.belongsTo(models.Ticket)
+    TransactionTicket.belongsTo(models.Ticket, {foreignKey: 'ticketId'})
   };
   return TransactionTicket;
 };
