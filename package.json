@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test npm run lint && jest --forceExit",
     "lint": "./node_modules/.bin/eslint .",
     "start": "node server.js",
     "dev": "nodemon server.js",
@@ -34,7 +33,6 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "inert": "^5.1.0",
-    "jest": "^23.3.0",
     "vision": "^5.3.3"
   }
 }

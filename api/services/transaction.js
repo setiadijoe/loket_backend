@@ -15,7 +15,6 @@ async function purchaseTicket (name, phoneNumber, ticketId, amountTicket) {
       context['payment'] = payment
       return context
     })
-    .catch(err => err)
 }
 
 async function takeTicket (ticketId, amountTicket) {

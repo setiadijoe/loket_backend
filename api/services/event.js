@@ -1,15 +1,11 @@
 const Model = require('./../../models')
 
 async function createEvent (eventName, locationId) {
-  return Model.Event.create({eventName, locationId}, {
-    include: [{model: Model.Location}]
-  })
+  return Model.Event.create({eventName, locationId})
     .then(event => {
-      console.log(event)
       return event
     })
     .catch(err => {
-      console.error(err)
       return err
     })
 }
@@ -22,7 +18,6 @@ async function getInfo (eventId) {
     ]
   })
     .then(event => {
-      console.log(event)
       return event
     })
 }
